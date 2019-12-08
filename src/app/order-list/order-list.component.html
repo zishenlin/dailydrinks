@@ -1,0 +1,70 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center mt-5">
+      <h1>orders</h1>
+    </div>
+    <div class="col-sm-12 mt-5">
+      <form [formGroup]="orderForm">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">店家</label>
+          <div class="col-sm-10">
+            <input formControlName="shopName" class="form-control" autofocus/>
+          </div>
+        </div>
+          <table formArrayName="drinkItems" class="table table-bordered table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>訂購人</th>
+                <th>品項</th>
+                <th>甜度</th>
+                <th>冰塊</th>
+                <th>價格</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let i of drinkItemsArray.controls; let idx = index" [formGroupName]="idx">
+                <td>{{ idx + 1 }}</td>
+                <td><input formControlName="customer" class="form-control"/></td>
+                <td><input formControlName="drinkName" class="form-control"/></td>
+                <td>
+                  <select formControlName="sugar" class="form-control">
+                    <option *ngFor="let sugar of allSugar" [ngValue]="sugar.name">
+                      {{ sugar.name }}
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select formControlName="ice" class="form-control">
+                    <option *ngFor="let ice of allIce" [ngValue]="ice.name">
+                      {{ ice.name }}
+                    </option>
+                  </select>
+                </td>
+                <td><input formControlName="price" class="form-control" type="number"/></td>
+                <td>
+                  <button type="button" (click)="deleteItem(idx)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="7">
+                  <button type="button" (click)="addItem()" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+      </form>
+      <div class="alert alert-primary text-center" role="alert">
+          <i class="fas fa-info-circle"></i> 共 {{ drinkItemsArray.controls.length }} 杯飲料
+      </div>
+      <div class="text-center">
+        <button type="button" [disabled]="orderForm.invalid" class="btn btn-success" (click)="submit()">訂購</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
