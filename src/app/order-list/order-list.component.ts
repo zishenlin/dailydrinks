@@ -13,20 +13,9 @@ export class OrderListComponent implements OnInit {
     ]) 
   });
   
-  allSugar=[
-    { name:'正常糖' },
-    { name:'少糖' },
-    { name:'半糖' },
-    { name:'微糖' },
-    { name:'無糖' }
-  ];
-
-  allIce=[
-    { name:'正常冰' },
-    { name:'少冰' },
-    { name:'微冰' },
-    { name:'去冰' }
-  ];
+  allSize=[ '大', '中', '小' ];
+  allSugar=[ '正常糖', '少糖', '半糖', '微糖' , '無糖' ];
+  allIce=[ '正常冰', '少冰', '微冰', '去冰', '熱' ];
 
   get drinkItemsArray(): FormArray{
     return this.orderForm.get('drinkItems') as FormArray;
@@ -40,6 +29,7 @@ export class OrderListComponent implements OnInit {
     return {
       customer: new FormControl('', Validators.required),
       drinkName: new FormControl('', Validators.required),
+      size: new FormControl('', Validators.required),
       sugar: new FormControl('', Validators.required),
       ice: new FormControl('', Validators.required),
       price: new FormControl(

@@ -5,15 +5,11 @@ npm start
 ```
 
 
-## Need
-* Homepage is a list to list all the orders
-* Each order contains the following fields:
-    * A single-line text of it's name
-    * The number price of the order
-    * A multi-line optional text to specify additional notes
-* One can add a new order to the list by filling out a form somewhere in your app
-* One can delete any order in the list
-* One can also edit any order in the list
+## Todo
+* 用表格方式呈現整筆訂單
+* 需要輸入店家名稱和每筆品項的所有資訊才能按訂購
+* 每筆品項包含訂購人、品項、容量、甜度、冰塊、價錢
+* 輸入完每筆品項後按訂購就完成訂單了
 
 
 ## Tools

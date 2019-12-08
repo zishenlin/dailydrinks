@@ -18,6 +18,7 @@
                 <th>#</th>
                 <th>訂購人</th>
                 <th>品項</th>
+                <th>容量</th>
                 <th>甜度</th>
                 <th>冰塊</th>
                 <th>價格</th>
@@ -30,16 +31,23 @@
                 <td><input formControlName="customer" class="form-control"/></td>
                 <td><input formControlName="drinkName" class="form-control"/></td>
                 <td>
+                  <select formControlName="size" class="form-control">
+                    <option *ngFor="let size of allSize" [ngValue]="size">
+                      {{ size }}
+                    </option>
+                  </select>
+                </td>
+                <td>
                   <select formControlName="sugar" class="form-control">
-                    <option *ngFor="let sugar of allSugar" [ngValue]="sugar.name">
-                      {{ sugar.name }}
+                    <option *ngFor="let sugar of allSugar" [ngValue]="sugar">
+                      {{ sugar }}
                     </option>
                   </select>
                 </td>
                 <td>
                   <select formControlName="ice" class="form-control">
-                    <option *ngFor="let ice of allIce" [ngValue]="ice.name">
-                      {{ ice.name }}
+                    <option *ngFor="let ice of allIce" [ngValue]="ice">
+                      {{ ice }}
                     </option>
                   </select>
                 </td>
@@ -51,7 +59,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <td colspan="7">
+                <td colspan="8">
                   <button type="button" (click)="addItem()" class="btn btn-primary"><i class="fas fa-plus"></i></button>
                 </td>
               </tr>
