@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormArray, Validators, FormBuilder } from '@angular/forms';
+import { FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-order-list',
@@ -32,11 +32,9 @@ export class OrderListComponent implements OnInit {
     return this.orderForm.get('drinkItems') as FormArray;
   }
 
-  constructor( private formBuilder:FormBuilder) { }
+  constructor( private formBuilder:FormBuilder ) { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   createDrinkItems(){
     return {
